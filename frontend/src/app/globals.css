@@ -303,6 +303,27 @@ body {
   font-size: 32px;
   line-height: 1;
   z-index: 3;
+  /* The box spans the whole margin band in order to centre the text, and
+     shares a stacking level with the mark. Without this it would sit on
+     top of the mark and swallow its hover. */
+  pointer-events: none;
+}
+
+/* Holds the final width so the letters land left to right instead of
+   spreading from the centre as they arrive. */
+.wordmark__inner {
+  position: relative;
+  display: inline-block;
+}
+
+.wordmark__measure {
+  visibility: hidden;
+}
+
+.wordmark__typed {
+  position: absolute;
+  inset: 0;
+  white-space: pre;
 }
 
 /* Vertical grid: 12 equal columns. Children can use Tailwind's
@@ -322,16 +343,21 @@ body {
   row-gap: var(--gutter-row);
 }
 
-/* --- Your list ------------------------------------------------------ */
+/* --- Top panels ----------------------------------------------------- */
 
-/* In the top margin, at the right edge of the grid — the mark's opposite
-   number. Above the sheet, so it stays clickable once the list is open. */
-.list-toggle {
+/* In the top margin, right-aligned to the grid — the mark's opposite
+   number. Above the sheets, so the buttons stay clickable over them. */
+.top-nav {
   position: absolute;
   right: var(--page-margin);
   top: calc(var(--page-margin-top) / 2);
   transform: translateY(-50%);
   z-index: 4;
+  display: flex;
+  gap: 24px;
+}
+
+.top-nav__button {
   appearance: none;
   border: 0;
   padding: 0;
@@ -343,14 +369,14 @@ body {
   cursor: pointer;
 }
 
-.list-toggle:hover {
+.top-nav__button:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-/* The sheet the feed fades out behind. Sits under the top-margin chrome
-   so the mark, the wordmark and the button stay visible over it. */
-.list-view {
+/* The white sheet the feed fades out behind. Sits under the top-margin
+   chrome so the mark, wordmark and buttons stay visible over it. */
+.sheet {
   position: fixed;
   inset: 0;
   z-index: 2;
@@ -362,19 +388,19 @@ body {
   transition: opacity 420ms ease;
 }
 
-.list-view[data-open="true"] {
+.sheet[data-open="true"] {
   opacity: 1;
   pointer-events: auto;
 }
 
-.list-view__items {
+.sheet__list {
   margin: 0;
   padding: 0;
   list-style: none;
   text-align: center;
 }
 
-.list-view__item {
+.sheet__item {
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -384,24 +410,41 @@ body {
   text-decoration: none;
 }
 
-.list-view__name {
+.sheet__name {
   font-size: 20px;
   line-height: 1.2;
 }
 
-.list-view__host {
+.sheet__host {
   font-size: 12px;
   line-height: 1.2;
   color: color-mix(in srgb, var(--foreground) 50%, transparent);
 }
 
-.list-view__item:hover .list-view__name {
+.sheet__item:hover .sheet__name {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
+/* Four columns wide, so the prose keeps a readable measure. */
+.sheet__about {
+  width: calc(4 * var(--column-width) + 3 * var(--gutter-column));
+  font-family: var(--font-computer-modern), "CMU Serif", Georgia, serif;
+  font-size: 15px;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.sheet__about p {
+  margin: 0 0 1em;
+}
+
+.sheet__about p:last-child {
+  margin-bottom: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .list-view {
+  .sheet {
     transition-duration: 1ms;
   }
 }
@@ -447,13 +490,36 @@ body {
   appearance: none;
   border: 0;
   padding: 0;
-  background: #d4d4d4;
+  display: flex;
+  gap: var(--gutter-column);
+  /* Opaque, so the entries sliding out from behind it stay hidden — the
+     divisions between bars are painted, not see-through. */
+  background: #fff;
   cursor: pointer;
+}
+
+/* A day the agent found nothing for. */
+.feed-day--empty {
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border: 1px solid var(--foreground);
+  cursor: default;
+  font-family: var(--font-computer-modern), "CMU Serif", Georgia, serif;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--foreground);
+}
+
+/* One bar per URL scraped that day. */
+.feed-day__bar {
+  flex: 1 1 0;
+  background: #d4d4d4;
   transition: background 200ms ease;
 }
 
-.feed-day:hover,
-.feed-day[aria-expanded="true"] {
+.feed-day:hover .feed-day__bar,
+.feed-day[aria-expanded="true"] .feed-day__bar {
   background: #a3a3a3;
 }
 
@@ -545,7 +611,7 @@ body {
   right: 0;
   bottom: 0;
   padding: 10px 12px;
-  background: #ededed;
+  background: #fff;
   font-family: var(--font-computer-modern), "CMU Serif", Georgia, serif;
   font-size: 12px;
   line-height: 1.4;

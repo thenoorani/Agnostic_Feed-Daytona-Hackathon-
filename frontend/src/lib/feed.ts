@@ -133,30 +133,8 @@ export const feedDays: FeedDay[] = [
     date: "27th of August",
     weekday: "Thursday",
     description:
-      "Identity work plus one hiring notice: a Base Design identity system, a launch from COLLINS, and an open role posted by Instrument.",
-    entries: [
-      {
-        id: "d1",
-        title: "Base Design — identity",
-        url: "https://basedesign.com/",
-        summary:
-          "A modular identity system for a museum, built on a single grid.",
-      },
-      {
-        id: "d2",
-        title: "COLLINS — launch",
-        url: "https://www.collins.com/",
-        summary:
-          "A rebrand launched for a financial product, spanning app and print.",
-      },
-      {
-        id: "d3",
-        title: "Instrument — hiring",
-        url: "https://www.instrument.com/",
-        summary:
-          "Open roles across design and engineering, in Portland and remote.",
-      },
-    ],
+      "Nothing new: none of the followed sites published anything today.",
+    entries: [],
   },
   {
     id: "2026-08-26",

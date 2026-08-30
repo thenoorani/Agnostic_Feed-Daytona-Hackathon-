@@ -87,6 +87,7 @@ export function Feed() {
     <>
       {feedDays.map((day, index) => {
         const isOpen = day.id === openDayId;
+        const isEmpty = day.entries.length === 0;
         const row = `${index * ROW_SPAN + 1} / span ${ROW_SPAN}`;
 
         return (
@@ -112,13 +113,29 @@ export function Feed() {
             >
               <p className="feed-description">{renderDescription(day.description)}</p>
 
-              <button
-                type="button"
-                className="feed-day"
-                aria-expanded={isOpen}
-                aria-label={`${day.date}, ${day.weekday} — ${day.entries.length} updates`}
-                onClick={() => toggle(day.id)}
-              />
+              {isEmpty ? (
+                // Nothing scraped that day: an outlined box with a nought,
+                // and nothing to open.
+                <div
+                  className="feed-day feed-day--empty"
+                  role="img"
+                  aria-label={`${day.date}, ${day.weekday} — no updates`}
+                >
+                  <span aria-hidden>0</span>
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  className="feed-day"
+                  aria-expanded={isOpen}
+                  aria-label={`${day.date}, ${day.weekday} — ${day.entries.length} updates`}
+                  onClick={() => toggle(day.id)}
+                >
+                  {day.entries.map((entry) => (
+                    <span key={entry.id} className="feed-day__bar" />
+                  ))}
+                </button>
+              )}
 
               <div className="feed-entries" inert={!isOpen}>
                 {day.entries.map((entry) => (
