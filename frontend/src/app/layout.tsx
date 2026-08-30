@@ -19,7 +19,19 @@ const geistMono = Geist_Mono({
 // rather than its bundled CSS, which declares `font-style: roman` — not a
 // valid CSS value.
 const computerModern = localFont({
-  src: "../../node_modules/computer-modern/fonts/cmu-serif-500-roman.woff2",
+  src: [
+    {
+      path: "../../node_modules/computer-modern/fonts/cmu-serif-500-roman.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      // The real bold cut, so the lead-in is not synthesised.
+      path: "../../node_modules/computer-modern/fonts/cmu-serif-700-roman.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
   variable: "--font-computer-modern",
   display: "swap",
 });

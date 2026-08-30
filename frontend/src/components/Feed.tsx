@@ -9,6 +9,28 @@ const TRACK_COLUMN_SPAN = 12
 const ROW_SPAN = 3;
 
 /**
+ * Sets the opening phrase apart from the rest of a description: whatever
+ * runs up to the first comma or colon. Returns an empty lead if the text
+ * has no such break near the start, so the paragraph just renders plain.
+ */
+function splitLead(description: string): [string, string] {
+  const match = description.match(/^([^,:]{1,60})[,:]/);
+  if (!match) return ["", description];
+  return [match[1], description.slice(match[1].length)];
+}
+
+function renderDescription(description: string) {
+  const [lead, rest] = splitLead(description);
+  if (!lead) return description;
+  return (
+    <>
+      <strong className="feed-description__lead">{lead}</strong>
+      {rest}
+    </>
+  );
+}
+
+/**
  * One track per day, spanning the full content width. Closed, it shows
  * the description and the day block. Open, the day's entries slide out
  * from behind the block and the whole row — description and block
@@ -88,7 +110,7 @@ export function Feed() {
                 gridRow: row,
               }}
             >
-              <p className="feed-description">{day.description}</p>
+              <p className="feed-description">{renderDescription(day.description)}</p>
 
               <button
                 type="button"

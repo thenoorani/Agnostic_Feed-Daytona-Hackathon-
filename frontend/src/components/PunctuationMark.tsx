@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 /** A period expands into four marks, then rises into two leaning
  *  strokes with a period and a comma. Playback is SMIL, so it runs from
@@ -22,20 +22,24 @@ const MOVE_SPLINES = "0 0 1 1;.2 .8 .2 1;0 0 1 1";
 const shape = (from: string, to: string) => [from, from, from, from, to, to].join(";");
 const move = (x: number) => `0 0; 0 0; ${x} 0; ${x} 0`;
 
-/** viewBox height, and the extent of the opened panel in user units —
- *  both mirrored in globals.css. */
+/** viewBox height, and the opened panel's geometry in user units. REACH
+ *  mirrors --mark-reach in globals.css; the other two derive from it the
+ *  same way the CSS custom properties do. */
 const VIEW_BOX_HEIGHT = 62.5;
-const OPEN_EXTENT = 576;
-const FIELD_EXTENT = 510;
+const REACH = 560;
+const FIELD_EXTENT = REACH + 10;
+const OPEN_EXTENT = REACH + 76;
 /** Wait this long after typing before growing further. */
 const REFLOW_DELAY = 300;
 
 export function PunctuationMark() {
+  const [swallowing, setSwallowing] = useState(false);
   const svgRef = useRef<SVGSVGElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const limitRef = useRef<HTMLSpanElement>(null);
   const timer = useRef<number | null>(null);
+  const swallowTimer = useRef<number | null>(null);
 
   const replay = useCallback(() => {
     svgRef.current?.setCurrentTime(0);
@@ -87,22 +91,32 @@ export function PunctuationMark() {
     return () => {
       window.removeEventListener("resize", onResize);
       if (timer.current !== null) window.clearTimeout(timer.current);
+      if (swallowTimer.current !== null) window.clearTimeout(swallowTimer.current);
     };
   }, [fitToValue]);
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // No ingestion endpoint yet — the backend owns this. Until then the
-    // field just validates, clears and collapses.
+    // No ingestion endpoint yet — the backend owns this. Until then an
+    // accepted URL just clears the field and plays the swallow.
     const input = inputRef.current;
-    if (!input || !input.checkValidity()) return;
+    if (!input || !input.value.trim() || !input.checkValidity()) return;
+
     input.value = "";
     formRef.current?.style.setProperty("--mark-extra", "0");
     input.blur();
+
+    setSwallowing(true);
+    if (swallowTimer.current !== null) window.clearTimeout(swallowTimer.current);
+    swallowTimer.current = window.setTimeout(() => setSwallowing(false), 1150);
   };
 
   return (
-    <form ref={formRef} className="mark-form" onSubmit={onSubmit}>
+    <form
+      ref={formRef}
+      className={swallowing ? "mark-form is-swallowing" : "mark-form"}
+      onSubmit={onSubmit}
+    >
       <svg
         ref={svgRef}
         className="mark"

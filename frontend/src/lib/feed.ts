@@ -263,3 +263,32 @@ export const feedDays: FeedDay[] = [
     ],
   },
 ];
+
+export type FollowedSite = {
+  name: string;
+  host: string;
+  url: string;
+};
+
+/**
+ * The sources being followed, derived from the feed rather than stored
+ * separately, so there is one source of truth while the data is mocked.
+ * The backend will serve this from the `sites` table instead.
+ */
+export const followedSites: FollowedSite[] = (() => {
+  const seen = new Map<string, FollowedSite>();
+
+  for (const day of feedDays) {
+    for (const entry of day.entries) {
+      const host = new URL(entry.url).hostname.replace(/^www\./, "");
+      if (seen.has(host)) continue;
+      seen.set(host, {
+        name: entry.title.split(" — ")[0],
+        host,
+        url: `https://${host}/`,
+      });
+    }
+  }
+
+  return [...seen.values()].sort((a, b) => a.name.localeCompare(b.name));
+})();
