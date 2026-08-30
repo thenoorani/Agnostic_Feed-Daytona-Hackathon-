@@ -34,6 +34,7 @@ const REFLOW_DELAY = 300;
 
 export function PunctuationMark() {
   const [swallowing, setSwallowing] = useState(false);
+  const [hasValue, setHasValue] = useState(false);
   const svgRef = useRef<SVGSVGElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -62,7 +63,11 @@ export function PunctuationMark() {
     context.font = `${styles.fontSize} ${styles.fontFamily}`;
 
     // How much wider than the resting field the text needs, in units.
-    const needed = context.measureText(input.value).width + 10;
+    // The field's padding is not usable text width, so count it in —
+    // otherwise the text is clipped well before the panel starts to grow.
+    const padding =
+      parseFloat(styles.paddingLeft) + parseFloat(styles.paddingRight);
+    const needed = context.measureText(input.value).width + padding + 6;
     const overflow = Math.max(0, needed / unit - FIELD_EXTENT);
 
     // The cap comes from CSS, so the grid maths stays in one place.
@@ -73,9 +78,20 @@ export function PunctuationMark() {
   }, []);
 
   const onInput = useCallback(() => {
+    setHasValue((inputRef.current?.value.length ?? 0) > 0);
     if (timer.current !== null) window.clearTimeout(timer.current);
     timer.current = window.setTimeout(fitToValue, REFLOW_DELAY);
   }, [fitToValue]);
+
+  const clear = useCallback(() => {
+    const input = inputRef.current;
+    if (!input) return;
+    input.value = "";
+    setHasValue(false);
+    formRef.current?.style.setProperty("--mark-extra", "0");
+    // Back to the field, so the panel stays open and you can keep typing.
+    input.focus();
+  }, []);
 
   useEffect(() => {
     const svg = svgRef.current;
@@ -103,6 +119,7 @@ export function PunctuationMark() {
     if (!input || !input.value.trim() || !input.checkValidity()) return;
 
     input.value = "";
+    setHasValue(false);
     formRef.current?.style.setProperty("--mark-extra", "0");
     input.blur();
 
@@ -219,6 +236,17 @@ export function PunctuationMark() {
         aria-label="Enter a URL to follow"
         onInput={onInput}
       />
+
+      {hasValue && (
+        <button
+          type="button"
+          className="mark-form__clear"
+          aria-label="Clear the URL"
+          onClick={clear}
+        >
+          <span aria-hidden>&times;</span>
+        </button>
+      )}
 
       {/* Measures column 5's right edge, so the cap is defined in CSS
           alongside the rest of the grid rather than recomputed here. */}
