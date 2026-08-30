@@ -1,48 +1,51 @@
-# 04 - The Agent
+# 04 - The Ingestion Agent
 
-The "Agent" is the core intelligence of the platform. It handles dynamically writing code to parse unstructured websites and utilizes Daytona to run that code safely.
+## Overview
+The Ingestion Agent is the intelligent orchestrator that checks sites for updates, generates extraction code when changes occur, and structures the output. It runs on a scheduled cadence and leverages Daytona for secure code execution.
 
-## Agent Workflow
+## Polling Cadence
+*   **Schedule:** The agent is triggered via a cron job **twice a day** (e.g., morning and evening).
+*   **Why:** This strikes a balance between keeping the feed fresh and minimizing LLM/Daytona infrastructure costs, while also avoiding aggressive polling that could burden target websites.
 
-### 1. Analysis Phase
-When a URL is submitted, the backend fetches the raw HTML (or uses a headless browser to get the rendered DOM).
-*   **Prompting the LLM:** The backend sends a prompt to an LLM (e.g., GPT-4o, Claude 3.5 Sonnet) containing:
-    *   The URL.
-    *   A snippet of the DOM.
-    *   Strict instructions to output *only* executable Python code.
+## The Agent Flow
 
-### 2. Code Generation (The Prompt)
-The LLM is instructed to generate a script utilizing a specific stack, for example, Python with Playwright.
+When the scheduled polling triggers, the agent follows a strict state machine for each monitored URL:
 
-**Example LLM Prompt:**
-```text
-You are an expert web scraper. I need a Python Playwright script to extract the latest main update from the following URL: {{url}}.
-Here is a sample of the DOM:
-{{dom_snippet}}
+### 1. Change Detection
+Before initiating complex LLM queries or heavy scraping operations, the agent first verifies if the site has actually been updated.
+*   **Method:** The system fetches a lightweight snapshot of the URL (e.g., raw HTML or just the text content of the `<body>`).
+*   **Comparison:** It compares the current snapshot's hash against the hash from the last successful ingestion.
+*   **Decision:**
+    *   **No Change:** The loop ends immediately. The agent sleeps until the next scheduled run.
+    *   **Change Detected:** The agent proceeds to code generation.
 
-Your script must:
-1. Navigate to the URL.
-2. Wait for the main content to load.
-3. Extract the primary "Title" of the most recent post/update.
-4. Extract the "Subtitle" or short summary.
-5. Take a screenshot of the specific element containing this update, or the viewport.
-6. Save the screenshot to `/tmp/screenshot.png`.
-7. Print a JSON object to stdout containing EXACTLY these keys: {"title": "...", "subtitle": "...", "screenshot_path": "/tmp/screenshot.png"}.
-Do not output any markdown formatting, ONLY the python code.
+### 2. Code Generation
+Once a change is confirmed, the agent analyzes the new DOM structure and writes a bespoke script to extract the latest update.
+*   **Prompting:** The LLM receives the new HTML snippet and is instructed to write an executable script (e.g., Python Playwright or Node Puppeteer).
+*   **Goal:** The script's objective is to extract only the *newest* item (the latest blog post, project, or announcement) rather than the entire page.
+
+### 3. Execution in Daytona Sandbox
+LLM-generated code should be treated as untrusted and potentially unstable. 
+*   **Provision:** The agent orchestrator calls the Daytona API to instantly spin up an isolated, ephemeral sandbox environment.
+*   **Execute:** The generated scraper script is injected into the Daytona workspace and executed.
+*   **Capture:** The script navigates to the page, parses the DOM, takes the required screenshot, and prints the result to standard output (stdout).
+
+### 4. Structured Output Validation
+To ensure the chronological feed (Are.Na) remains consistent and visually appealing, the output from the Daytona sandbox must strictly adhere to a predefined schema. 
+*   **Zod Schema:** The backend validates the script's JSON output using a Zod schema before processing it further.
+
+```typescript
+import { z } from "zod";
+
+export const FeedItemSchema = z.object({
+  title: z.string().min(1).describe("The main title of the new update or post."),
+  subtitle: z.string().optional().describe("A short summary, excerpt, or subtitle."),
+  screenshot_base64: z.string().describe("Base64 encoded string of the screenshot taken by the script."),
+  post_url: z.string().url().describe("The direct permalink to the specific update, if available.")
+});
+
+export type FeedItem = z.infer<typeof FeedItemSchema>;
 ```
 
-### 3. Execution in Daytona (The Sandbox)
-You cannot run untrusted, LLM-generated code on your backend server. This is where Daytona is crucial.
-1.  **Provision:** Backend calls Daytona API to spin up a pre-configured workspace (e.g., a devcontainer image that already has Python, Playwright, and Chromium installed).
-2.  **Transfer:** The backend injects the generated `scrape.py` into the Daytona sandbox workspace.
-3.  **Execute:** The backend runs the command `python scrape.py` inside the sandbox via Daytona's execution API.
-4.  **Retrieve:**
-    *   Capture the stdout (the JSON object).
-    *   If the script succeeds, copy `/tmp/screenshot.png` out of the sandbox.
-5.  **Teardown:** Destroy the sandbox to free resources.
-
-### 4. Self-Healing
-Websites change their layouts. When the cron job runs the script in Daytona a week later, it might fail (e.g., CSS selectors changed).
-*   **Detection:** Daytona execution returns a non-zero exit code or fails to output valid JSON.
-*   **Recovery:** The backend catches the error, fetches the new HTML, and prompts the LLM again: *"Your previous script failed with this error: {error_log}. The DOM has likely changed. Here is the new DOM. Generate an updated script."*
-*   The new script is saved to the database as `version 2`, and execution is retried.
+*   **Ingestion:** If the output satisfies the `FeedItemSchema`, the backend logs the new hash (for future change detection) and pushes the content block to the Are.Na feed.
+*   **Self-Healing:** If the Zod validation fails (e.g., the script missed the title), the agent can feed the validation error back to the LLM for an automatic retry inside Daytona.
