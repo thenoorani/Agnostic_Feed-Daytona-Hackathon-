@@ -390,10 +390,10 @@ body {
   row-gap: var(--gutter-row);
 }
 
-/* --- Top panels ----------------------------------------------------- */
+/* --- Header nav ----------------------------------------------------- */
 
 /* In the top margin, right-aligned to the grid — the mark's opposite
-   number. Above the sheets, so the buttons stay clickable over them. */
+   number. */
 .top-nav {
   position: absolute;
   right: var(--page-margin);
@@ -404,56 +404,36 @@ body {
   gap: 24px;
 }
 
-.top-nav__button {
-  appearance: none;
-  border: 0;
-  padding: 0;
-  background: none;
+.top-nav__link {
   color: var(--foreground);
   font-family: var(--font-computer-modern), "CMU Serif", Georgia, serif;
   font-size: 16px;
   line-height: 1.2;
-  cursor: pointer;
+  text-decoration: none;
 }
 
-.top-nav__button:hover {
+.top-nav__link:hover {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-/* The white sheet the feed fades out behind. Sits under the top-margin
-   chrome so the mark, wordmark and buttons stay visible over it. */
-.sheet {
-  position: fixed;
-  inset: 0;
-  z-index: 2;
-  /* Flex plus `margin: auto` on the child rather than place-items:
-     center — centring alone would clip tall content at both ends and
-     leave the top unreachable. */
+/* --- List and About pages ------------------------------------------- */
+
+/* Ordinary page content rather than an overlay, so the browser handles
+   the scrolling. Auto margins centre it while it fits and give way when
+   it does not. */
+.panel {
   display: flex;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  padding: calc(var(--page-margin-top) + 24px) var(--page-margin)
-    var(--page-margin);
-  background: var(--background);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 420ms ease;
 }
 
-.sheet[data-open="true"] {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.sheet__list {
+.panel__list {
   margin: auto;
   padding: 0;
   list-style: none;
   text-align: center;
 }
 
-.sheet__item {
+.panel__item {
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -463,24 +443,24 @@ body {
   text-decoration: none;
 }
 
-.sheet__name {
+.panel__name {
   font-size: 20px;
   line-height: 1.2;
 }
 
-.sheet__host {
+.panel__host {
   font-size: 12px;
   line-height: 1.2;
   color: color-mix(in srgb, var(--foreground) 50%, transparent);
 }
 
-.sheet__item:hover .sheet__name {
+.panel__item:hover .panel__name {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 /* Four columns wide, so the prose keeps a readable measure. */
-.sheet__about {
+.panel__prose {
   margin: auto;
   width: calc(4 * var(--column-width) + 3 * var(--gutter-column));
   font-family: var(--font-computer-modern), "CMU Serif", Georgia, serif;
@@ -489,18 +469,12 @@ body {
   text-wrap: pretty;
 }
 
-.sheet__about p {
+.panel__prose p {
   margin: 0 0 1em;
 }
 
-.sheet__about p:last-child {
+.panel__prose p:last-child {
   margin-bottom: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .sheet {
-    transition-duration: 1ms;
-  }
 }
 
 /* --- Feed ----------------------------------------------------------- */
