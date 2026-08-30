@@ -301,6 +301,8 @@ body {
   margin: 0;
   font-family: var(--font-computer-modern), "CMU Serif", Georgia, serif;
   font-size: 32px;
+  font-weight: 500;
+  font-style: italic;
   line-height: 1;
   z-index: 3;
   /* The box spans the whole margin band in order to centre the text, and
@@ -523,28 +525,31 @@ body {
   background: #a3a3a3;
 }
 
-/* Columns 1-4, right-aligned so it meets the right edge of column 4 —
-   the gutter before the day block. Top-aligned with the block itself.
-   Outside the scroll track, so it does not move when the row scrolls. */
+/* Columns 3-4, right-aligned so it meets the right edge of column 4 —
+   the gutter before the day block. Inside the track, so it travels with
+   the rest of the row. */
 .feed-label {
+  flex: 0 0 var(--description-width);
   align-self: start;
   margin: 0;
   text-align: right;
+  /* Held on one line: right-aligned, so a long date runs leftward into
+     the gutter rather than wrapping under itself. min-width overrides a
+     flex item's auto minimum, which would otherwise let the unwrappable
+     text widen the item and shove the day block off column 5. */
+  white-space: nowrap;
+  min-width: 0;
   font-family: var(--font-computer-modern), "CMU Serif", Georgia, serif;
   font-size: 16px;
   line-height: 1.2;
 }
 
-/* Exactly columns 1-2. The trailing margin covers columns 3 and 4 with
-   their gutters, so the day block after it still lands on column 5.
-   Scrolls with the row; the date label above it is lifted into the
-   gutter, so the two never collide. */
+/* Exactly columns 1-2. The date label that follows fills columns 3-4, so
+   between them the day block still lands on column 5. */
 .feed-description {
   flex: 0 0 var(--description-width);
   align-self: start;
-  /* Shorthand, not a separate margin-right: a later `margin: 0` would
-     silently reset it. */
-  margin: 0 calc(2 * var(--column-width) + 2 * var(--gutter-column)) 0 0;
+  margin: 0;
   font-family: var(--font-computer-modern), "CMU Serif", Georgia, serif;
   font-size: 14px;
   line-height: 1.45;

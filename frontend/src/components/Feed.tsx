@@ -3,7 +3,6 @@
 import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import { feedDays } from "@/lib/feed";
 
-const LABEL_COLUMN_SPAN = 4; // columns 1-4, right-aligned against column 4
 const TRACK_COLUMN_START = 1; // the row scrolls as one, description included
 const TRACK_COLUMN_SPAN = 12
 const ROW_SPAN = 3;
@@ -33,10 +32,9 @@ function renderDescription(description: string) {
 /**
  * One track per day, spanning the full content width. Closed, it shows
  * the description and the day block. Open, the day's entries slide out
- * from behind the block and the whole row — description and block
- * included — scrolls horizontally, ending with the last entry on the
- * grid's right margin. Only the date label sits outside the track, so it
- * stays put however far the row is scrolled.
+ * from behind the block and the whole row — description, date and
+ * block included — scrolls horizontally, ending with the last entry on
+ * the grid's right margin.
  */
 export function Feed() {
   const [openDayId, setOpenDayId] = useState<string | null>(null);
@@ -92,14 +90,6 @@ export function Feed() {
 
         return (
           <Fragment key={day.id}>
-            <p
-              className="feed-label"
-              style={{ gridColumn: `1 / span ${LABEL_COLUMN_SPAN}`, gridRow: row }}
-            >
-              <span className="feed-label__date">{day.date},</span>{" "}
-              <span className="feed-label__weekday">{day.weekday}</span>
-            </p>
-
             <div
               className="feed-track"
               data-open={isOpen}
@@ -112,6 +102,11 @@ export function Feed() {
               }}
             >
               <p className="feed-description">{renderDescription(day.description)}</p>
+
+              <p className="feed-label">
+                <span className="feed-label__date">{day.date},</span>{" "}
+                <span className="feed-label__weekday">{day.weekday}</span>
+              </p>
 
               {isEmpty ? (
                 // Nothing scraped that day: an outlined box with a nought,

@@ -31,6 +31,17 @@ const computerModern = localFont({
       weight: "700",
       style: "normal",
     },
+    {
+      // Real italics too — the browser would otherwise slant the roman.
+      path: "../../node_modules/computer-modern/fonts/cmu-serif-500-italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../../node_modules/computer-modern/fonts/cmu-serif-700-italic.woff2",
+      weight: "700",
+      style: "italic",
+    },
   ],
   variable: "--font-computer-modern",
   display: "swap",
