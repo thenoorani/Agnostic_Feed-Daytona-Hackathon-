@@ -140,6 +140,7 @@ export function Feed() {
                     href={entry.url}
                     target="_blank"
                     rel="noreferrer noopener"
+                    style={entry.imageUrl ? { backgroundImage: `url(${entry.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
                   >
                     <span className="sr-only">{entry.title}</span>
                     <span className="feed-entry__summary">{entry.summary}</span>
