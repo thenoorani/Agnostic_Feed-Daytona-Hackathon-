@@ -3,6 +3,54 @@
 ## Overview
 The Ingestion Agent is the intelligent orchestrator that checks sites for updates, generates extraction code when changes occur, and structures the output. It runs on a scheduled cadence and leverages Daytona for secure code execution.
 
+## Agent Setup & Architecture Diagram
+This diagram outlines the context, the prompts provided to the model, the exact tooling required, and the logical flow of data.
+
+```mermaid
+graph TD
+    subgraph Context & Trigger
+        A[Cron Job<br/>Twice Daily]
+        B[Fetch HTML/DOM from Target Site]
+        C{Hash Changed?}
+        
+        A --> B
+        B --> C
+        C -- No --> Exit([End Loop])
+    end
+
+    subgraph Prompts & The Model
+        P1["System Prompt<br/>(Role: Expert Web Scraper, Output strictly code)"]
+        P2["User Prompt<br/>(Target URL + DOM Snippet + Schema requirements)"]
+        M["LLM Engine<br/>(e.g., Claude 3.5 Sonnet, GPT-4o)"]
+        
+        C -- Yes --> P1
+        C -- Yes --> P2
+        P1 --> M
+        P2 --> M
+    end
+
+    subgraph Tooling & Execution
+        D["Daytona API"]
+        S["Daytona Sandbox<br/>(Secure Ephemeral Environment)"]
+        E["Playwright / Python Script<br/>(Navigates site & extracts)"]
+        
+        M -- "Outputs Python Scraper Script" --> D
+        D -- "Spins up & injects code" --> S
+        S --> E
+    end
+
+    subgraph Validation & Output
+        Z["Zod Validator<br/>(Validates JSON against FeedItemSchema)"]
+        H{"Validation Pass?"}
+        F["Are.Na Feed<br/>(Final Destination)"]
+        
+        E -- "Returns stdout (JSON) + Screenshot" --> Z
+        Z --> H
+        H -- "Yes (Push via API)" --> F
+        H -- "No (Feed Error to LLM)" --> M
+    end
+```
+
 ## Polling Cadence
 *   **Schedule:** The agent is triggered via a cron job **twice a day** (e.g., morning and evening).
 *   **Why:** This strikes a balance between keeping the feed fresh and minimizing LLM/Daytona infrastructure costs, while also avoiding aggressive polling that could burden target websites.
