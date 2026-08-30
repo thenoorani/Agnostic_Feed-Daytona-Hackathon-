@@ -43,12 +43,11 @@ Logs every execution inside the Daytona sandbox. Used for debugging, state manag
 | `created_at` | Timestamp | When the run occurred |
 
 ## 4. `feed_items` Table
-Tracks what has actually been pushed to Are.Na to prevent duplicate posts.
+Tracks what has actually been published to the feed to prevent duplicate posts.
 
 | Column | Type | Description |
 | :--- | :--- | :--- |
 | `id` | UUID (PK) | Unique identifier for the feed item |
 | `site_id` | UUID (FK) | References `sites.id` |
 | `run_id` | UUID (FK) | References `scrape_runs.id` |
-| `arena_block_id` | String | The ID returned by the Are.Na API |
-| `pushed_at`| Timestamp | When it was successfully published to the feed |
+| `published_at`| Timestamp | When it was successfully published to the feed |

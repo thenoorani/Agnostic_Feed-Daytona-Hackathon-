@@ -1,6 +1,6 @@
 # 03 - Frontend
 
-The frontend should be extremely simple, focusing on utility and aesthetic minimalism, matching the vibe of platforms like Are.Na.
+The frontend should be extremely simple, focusing on utility and aesthetic minimalism.
 
 ## Tech Stack
 *   **Framework:** Next.js (App Router)
@@ -27,8 +27,8 @@ A dashboard to see which websites are currently being tracked.
     *   Status indicator (e.g., "Active", "Script Broken", "Last Scraped: 10 mins ago").
     *   Option to manually trigger a scrape or delete the site.
 
-### 3. The Feed View (`/feed`) - *Optional*
-If you prefer to have a native feed in addition to (or instead of) Are.Na.
+### 3. The Feed View (`/feed`)
+This is the primary destination where the scraped database contents are rendered into a chronological timeline.
 *   **UI Components:**
     *   A chronological timeline.
     *   Each card contains:
@@ -39,6 +39,6 @@ If you prefer to have a native feed in addition to (or instead of) Are.Na.
         *   Link out to the original URL.
 
 ## Design Guidelines
-*   **Monochrome / Brutalist:** Black and white with a single accent color (e.g., Are.Na blue or a neon green to signify "Agent active").
+*   **Monochrome / Brutalist:** Black and white with a single accent color (e.g., a neon green to signify "Agent active").
 *   **Typography:** Sans-serif, highly legible (e.g., Inter, Helvetica Neue).
 *   **Feedback:** Since generating a script and spinning up a Daytona sandbox might take 10-30 seconds, use engaging loading states (e.g., a terminal-like window showing the backend steps: "Booting sandbox...", "Generating Python script...", "Executing...").
