@@ -357,28 +357,19 @@ body {
 }
 
 /* Holds the final width so the letters land left to right instead of
-   spreading from the centre as they arrive, and carries the box the
-   title sits in. */
+   spreading from the centre as they arrive. */
 .wordmark__inner {
   position: relative;
   display: inline-block;
-  padding: 6px 16px;
-  border: 0.5px solid color-mix(in srgb, var(--foreground) 30%, transparent);
-  border-radius: 10px;
-  background: color-mix(in srgb, var(--page-grey) 25%, transparent);
 }
 
 .wordmark__measure {
   visibility: hidden;
 }
 
-/* Same padding as the box: absolute positioning resolves against the
-   padding box, so without it the typed letters would sit a padding's
-   width left of the hidden text they are meant to trace. */
 .wordmark__typed {
   position: absolute;
   inset: 0;
-  padding: 6px 16px;
   white-space: pre;
 }
 
@@ -436,8 +427,14 @@ body {
   position: fixed;
   inset: 0;
   z-index: 2;
-  display: grid;
-  place-items: center;
+  /* Flex plus `margin: auto` on the child rather than place-items:
+     center — centring alone would clip tall content at both ends and
+     leave the top unreachable. */
+  display: flex;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: calc(var(--page-margin-top) + 24px) var(--page-margin)
+    var(--page-margin);
   background: var(--background);
   opacity: 0;
   pointer-events: none;
@@ -450,7 +447,7 @@ body {
 }
 
 .sheet__list {
-  margin: 0;
+  margin: auto;
   padding: 0;
   list-style: none;
   text-align: center;
@@ -484,6 +481,7 @@ body {
 
 /* Four columns wide, so the prose keeps a readable measure. */
 .sheet__about {
+  margin: auto;
   width: calc(4 * var(--column-width) + 3 * var(--gutter-column));
   font-family: var(--font-computer-modern), "CMU Serif", Georgia, serif;
   font-size: 15px;

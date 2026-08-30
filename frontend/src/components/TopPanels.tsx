@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { followedSites } from "@/lib/feed";
 
 type Panel = "list" | "about";
@@ -14,6 +14,19 @@ export function TopPanels() {
   const [open, setOpen] = useState<Panel | null>(null);
   const toggle = (panel: Panel) =>
     setOpen((current) => (current === panel ? null : panel));
+
+  // Hold the feed still behind an open sheet. Without this the wheel
+  // falls through and scrolls the page you cannot see, so the sheet
+  // feels unresponsive and closing it lands you somewhere else.
+  useEffect(() => {
+    if (!open) return;
+    const root = document.documentElement;
+    const previous = root.style.overflow;
+    root.style.overflow = "hidden";
+    return () => {
+      root.style.overflow = previous;
+    };
+  }, [open]);
 
   return (
     <>
