@@ -1,44 +1,36 @@
 [
   {
-    "id": "2026-08-31",
-    "date": "31st of August",
-    "weekday": "Monday",
-    "description": "Updates from Viviane Sassen.",
-    "entries": [
-      {
-        "id": "4e41ed06",
-        "title": "Viviane Sassen \u2014 VIVIANE SASSEN",
-        "url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAQAG0DASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAgMEAQb/xAAuEAACAgEDAwEHAwUAAAAAAAABAgMEEQAFIRITMYEUMkFRYZGhFSNxIjNCUlP/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A6obpZ7F7NaL2irKI1i7h/czjp5xxnqGmNdue3vUWvCXWuJge6Rk5I6fd+Y8/jRSbcW3lLquBH28SR/7MpPQfTqb8a0VrA3xrXTF7OYBFnrPVkEnxjGOfnoFV9zntVdvlhgjL2smRDIR2gBz8OcHj4ckadQvPYisyWEjiWCV48hychfJPAxoaG3GnbtS9YaOSQtCn/MNgt92yftqRaO4CpYg7dbFi0ZH/AHm/ts2SPd8kZHroLKV+W7RlkSAR2I3ZDFI2MEcjJxxlSD66nqb2be0zWUgEdqBOqWvI2CvGRzjkEcg40SUrdbcLklZYjBPEuA8zdXcAIyeDwR0jz/jpFvZ55qVd4HjhvRwiByCSkiEYKnj1BxwfXQVSbhYXcJqgigzHCkis0pHUWLKF8fNfyNN3G+tH2cN0r35O2HkOFU4JGT9cY9dTT0rLbvNcFarMhhjSMSSEMGVmbPunHLD7aqtwzTxJE8NeeJ1KzRycA/UcH4/DQDauT1dtM7Vg1nGFgV89TfIH8/xobe6QwVathSvatOqrI5wihlJBJ9MfyRqepttqIUq8zI9atER1CVg/X4Hw8AZHn46ynSuwUBTmgqS1w7r2y5YGIklRyvkcD6jQNl3OeKaKq0MSWpY2dVeXCuQcdKnHJPn6aKTcLA3CaqsMIKQpIpeUjqLFgF8ecr+RqN9msNtA21xBLGIsRuzHqhfJwQcZIAIA8H+n68PkoWf1WW12K069iOOMyyEN1IzN1e6ccsPtoDbdmg3j2G3CI4pAvZnDZVmOcK3HB4OPnqytNJLLYSREURSdClWJyOkHPjjzqV6D3JLcd6OJq88aIOhjnIzzjHHJyOT40e01bVWCVLkyzyNJkSAYLKFABP1wOdB//9k=",
-        "imageUrl": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAAQAG0DASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAgMEAQb/xAAuEAACAgEDAwEHAwUAAAAAAAABAgMEEQAFIRITMYEUMkFRYZGhFSNxIjNCUlP/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A6obpZ7F7NaL2irKI1i7h/czjp5xxnqGmNdue3vUWvCXWuJge6Rk5I6fd+Y8/jRSbcW3lLquBH28SR/7MpPQfTqb8a0VrA3xrXTF7OYBFnrPVkEnxjGOfnoFV9zntVdvlhgjL2smRDIR2gBz8OcHj4ckadQvPYisyWEjiWCV48hychfJPAxoaG3GnbtS9YaOSQtCn/MNgt92yftqRaO4CpYg7dbFi0ZH/AHm/ts2SPd8kZHroLKV+W7RlkSAR2I3ZDFI2MEcjJxxlSD66nqb2be0zWUgEdqBOqWvI2CvGRzjkEcg40SUrdbcLklZYjBPEuA8zdXcAIyeDwR0jz/jpFvZ55qVd4HjhvRwiByCSkiEYKnj1BxwfXQVSbhYXcJqgigzHCkis0pHUWLKF8fNfyNN3G+tH2cN0r35O2HkOFU4JGT9cY9dTT0rLbvNcFarMhhjSMSSEMGVmbPunHLD7aqtwzTxJE8NeeJ1KzRycA/UcH4/DQDauT1dtM7Vg1nGFgV89TfIH8/xobe6QwVathSvatOqrI5wihlJBJ9MfyRqepttqIUq8zI9atER1CVg/X4Hw8AZHn46ynSuwUBTmgqS1w7r2y5YGIklRyvkcD6jQNl3OeKaKq0MSWpY2dVeXCuQcdKnHJPn6aKTcLA3CaqsMIKQpIpeUjqLFgF8ecr+RqN9msNtA21xBLGIsRuzHqhfJwQcZIAIA8H+n68PkoWf1WW12K069iOOMyyEN1IzN1e6ccsPtoDbdmg3j2G3CI4pAvZnDZVmOcK3HB4OPnqytNJLLYSREURSdClWJyOkHPjjzqV6D3JLcd6OJq88aIOhjnIzzjHHJyOT40e01bVWCVLkyzyNJkSAYLKFABP1wOdB//9k=",
-        "summary": "No description available."
-      }
-    ]
-  },
-  {
     "id": "2026-08-30",
     "date": "30th of August",
     "weekday": "Sunday",
-    "description": "Updates from Spitalfields Life, Rare Historical Photos and Misfits Architecture.",
+    "description": "Updates from Rarehistoricalphotos, Spitalfieldslife, Vivianesassen and Misfitsarchitecture.",
     "entries": [
       {
-        "id": "bd3f3f07",
-        "title": "Spitalfields Life \u2014 So Long, Martin White",
-        "url": "https://spitalfieldslife.com/wp-content/uploads/2013/11/white_0006.jpg",
-        "imageUrl": "https://spitalfieldslife.com/wp-content/uploads/2013/11/white_0006.jpg",
+        "id": "666edb95",
+        "title": "Vivianesassen \u2014 PHOSPHOR: Art & Fashion 1990-2023",
+        "url": "https://www.vivianesassen.com/calendar/phosphor-art-fashion-1990-2025/",
+        "imageUrl": "https://www.vivianesassen.com/site/assets/files/5102/88_athalias_eye-_2022.jpg",
+        "summary": "PHOSPHOR: Art & Fashion 1990-2023, FOTOGRAFISKA SHANGHAI , FOTOGRAFISKA SHANGHAI, Shanghai, China, 6 JUNE 2024 - 25 AUGUST 2024"
+      },
+      {
+        "id": "70810edf",
+        "title": "Spitalfieldslife \u2014 So Long, Martin White",
+        "url": "https://spitalfieldslife.com/2026/08/30/so-long-martin-white/",
+        "imageUrl": "https://spitalfieldslife.com/wp-content/uploads/2013/11/white_0006-231x300.jpg",
         "summary": "Textile Consultant Martin White died on Thursday aged ninety-five. After the loss of his business partner Philip Pittack from Covid in 2020, Martin continued running Crescent Trading, Spitalfields\u2019 last cloth warehouse, until recently."
       },
       {
-        "id": "d55545b1",
-        "title": "Rare Historical Photos \u2014 Disturbing Runaway Slave Ads From the 19th Century Capture the Struggle for Freedom",
-        "url": "https://rarehistoricalphotos.com/wp-content/uploads/2026/07/runaway-slave-ads-photos-384x253.jpg",
-        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/07/runaway-slave-ads-photos-384x253.jpg",
+        "id": "c5316394",
+        "title": "Rarehistoricalphotos \u2014 Disturbing Runaway Slave Ads From the 19th Century Capture the Struggle for Freedom",
+        "url": "https://rarehistoricalphotos.com/runaway-slave-ads-photos/",
+        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/07/runaway-slave-ads-photos.jpg",
         "summary": "For over two centuries, enslaved people across North America risked everything to escape bondage, and slaveholders had a ready tool to try to stop them: the local newspaper. As print publications spread through American towns and cities in the 18th and 19th\u2026"
       },
       {
-        "id": "ea3c1c41",
-        "title": "Misfits Architecture \u2014 \u201cSignature Moves\u201d",
-        "url": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/06/06-19paaebss9.webp?fit=300%2C200&ssl=1",
-        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/06/06-19paaebss9.webp?fit=300%2C200&ssl=1",
+        "id": "4b3a21ac",
+        "title": "Misfitsarchitecture \u2014 \u201cSignature Moves\u201d",
+        "url": "https://misfitsarchitecture.com/category/criticism/",
+        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/06/06-19paaebss9.webp?resize=768%2C513&ssl=1",
         "summary": "\u201cLet me activate my copywriting expertise \u2026\u201d Sycophantic ChatGPT was bad enough, but I\u2019m not warming to what Claude Opus 4.8 concludes is a personality. Once again, let\u2019s meet again on the other side. Supergraphics, or How Buildings Learned to Shout Let us begin, as one must, with a definition. A\u00a0supergraphic\u00a0is a graphic element scaled [\u2026]"
       }
     ]
@@ -47,28 +39,21 @@
     "id": "2026-08-29",
     "date": "29th of August",
     "weekday": "Saturday",
-    "description": "Updates from Rare Historical Photos, Misfits Architecture and Viviane Sassen.",
+    "description": "Updates from Rarehistoricalphotos and Misfitsarchitecture.",
     "entries": [
       {
-        "id": "1e226077",
-        "title": "Rare Historical Photos \u2014 When 1970s Students Embraced the Miniskirt: Vintage Photos Reveal a New Era of Fashion",
-        "url": "https://rarehistoricalphotos.com/wp-content/uploads/2026/07/students-and-miniskirts-fashion-384x253.jpg",
-        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/07/students-and-miniskirts-fashion-384x253.jpg",
+        "id": "5603f475",
+        "title": "Rarehistoricalphotos \u2014 When 1970s Students Embraced the Miniskirt: Vintage Photos Reveal a New Era of Fashion",
+        "url": "https://rarehistoricalphotos.com/students-and-miniskirts-fashion/",
+        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/07/students-and-miniskirts-fashion.jpg",
         "summary": "A yearbook page from the 1970s rarely looks like a fashion statement at first glance, yet look closer and the hemlines tell their own story. Row after row of young women pose in skirts several inches above the knee, a length that had been considered scandal\u2026"
       },
       {
-        "id": "714ad0ce",
-        "title": "Misfits Architecture \u2014 Front-end Design",
-        "url": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/06/Screenshot-2026-06-25-at-15.27.27-scaled.png?fit=300%2C210&ssl=1",
-        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/06/Screenshot-2026-06-25-at-15.27.27-scaled.png?fit=300%2C210&ssl=1",
+        "id": "241019da",
+        "title": "Misfitsarchitecture \u2014 Front-end Design",
+        "url": "https://misfitsarchitecture.com/category/aesthetics/",
+        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/06/Screenshot-2026-06-25-at-15.27.27-scaled.png?resize=2048%2C1437&ssl=1",
         "summary": "There are somewhere between 90 and 130 automobile manufacturers in China. Many are groups under the umbrella of one or more the four state-owned manufacturers but there are also many that aren\u2019t. The list and breakdown on Wikipedia seems comprehensive. On China roads in Wenzhou \u2013\u00a0a fairly prosperous Tier-3 city \u2013\u00a0I see BMWs, Mercedes Benzes, [\u2026]"
-      },
-      {
-        "id": "db594f0e",
-        "title": "Viviane Sassen \u2014 Viviane Sassen Post",
-        "url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAASABsDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAMFBgH/xAAiEAACAgIBBQADAAAAAAAAAAABAgMRAAQhBRITMVFBYWL/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A3+dyh19CaLYgmXTKyDeld3tb8TB65v1ZXj9euMji6XNL06RZtaQb8aqRLIylZJENgijdE/RdEjA0WModfpUqHZE8QKEPLH4yAweQUyqfxVGj/Q+ZLqam5Hrqj62uxUkd19hYWaJVeASPdYFzjGMBjGMD/9k=",
-        "imageUrl": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAASABsDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAMFBgH/xAAiEAACAgIBBQADAAAAAAAAAAABAgMRAAQhBRITMVFBYWL/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A3+dyh19CaLYgmXTKyDeld3tb8TB65v1ZXj9euMji6XNL06RZtaQb8aqRLIylZJENgijdE/RdEjA0WModfpUqHZE8QKEPLH4yAweQUyqfxVGj/Q+ZLqam5Hrqj62uxUkd19hYWaJVeASPdYFzjGMBjGMD/9k=",
-        "summary": "No description available."
       }
     ]
   },
@@ -76,21 +61,28 @@
     "id": "2026-08-28",
     "date": "28th of August",
     "weekday": "Friday",
-    "description": "Updates from Rare Historical Photos and Misfits Architecture.",
+    "description": "Updates from Rarehistoricalphotos, Vivianesassen and Misfitsarchitecture.",
     "entries": [
       {
-        "id": "12f55e88",
-        "title": "Rare Historical Photos \u2014 Historical Photos That Capture the Global Impact of the 1918 Spanish Flu",
-        "url": "https://rarehistoricalphotos.com/wp-content/uploads/2026/07/spanish-flu-rare-photos-384x253.jpg",
-        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/07/spanish-flu-rare-photos-384x253.jpg",
+        "id": "8baf0245",
+        "title": "Rarehistoricalphotos \u2014 Historical Photos That Capture the Global Impact of the 1918 Spanish Flu",
+        "url": "https://rarehistoricalphotos.com/spanish-flu-rare-photos/",
+        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/07/spanish-flu-rare-photos.jpg",
         "summary": "A century ago, a virus swept across the planet with a speed and lethality the modern world had never witnessed, reshaping societies from crowded cities to remote villages in a matter of months. The 1918 influenza pandemic remains one of the deadliest public\u2026"
       },
       {
-        "id": "561b5ede",
-        "title": "Misfits Architecture \u2014 Learning Curves",
-        "url": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/07/5-copy-3.jpg?fit=300%2C169&ssl=1",
-        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/07/5-copy-3.jpg?fit=300%2C169&ssl=1",
+        "id": "39f5a78f",
+        "title": "Misfitsarchitecture \u2014 Learning Curves",
+        "url": "https://misfitsarchitecture.com/category/education/",
+        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/07/5-copy-3.jpg?resize=768%2C432&ssl=1",
         "summary": "The snippets below are what I took away from a 29th June The Guardian article titled \u2018There\u2019s this deep mystery of what, actually, is this thing?: the philosopher inside Google DeepMind\u2019. \u201cWhen I first joined DeepMind, it was not at all clear how you were going to get AI you can talk to. Now, by [\u2026]"
+      },
+      {
+        "id": "c0d44904",
+        "title": "Vivianesassen \u2014 PHOSPHOR: Art & Fashion: 1990- 2023",
+        "url": "https://www.vivianesassen.com/calendar/phosphor-art-fashion-1990-2023/",
+        "imageUrl": "https://www.vivianesassen.com/site/assets/files/5100/bache_vivianesassen_2023_mep_vdef.jpg",
+        "summary": "PHOSPHOR: Art & Fashion: 1990- 2023, MAISON EUROPE\u00c9NNE DE LA PHOTOGRAPHIE , Maison Europe\u00e9nne de la Photographie, Paris, France, 18 OCTOBER 2023 - 11 FEBRUARY 2024"
       }
     ]
   },
@@ -98,28 +90,50 @@
     "id": "2026-08-27",
     "date": "27th of August",
     "weekday": "Thursday",
-    "description": "Updates from Spitalfields Life, Rare Historical Photos and Misfits Architecture.",
+    "description": "Updates from Spitalfieldslife, Rarehistoricalphotos, Misfitsarchitecture and Vivianesassen.",
     "entries": [
       {
-        "id": "8540f5b8",
-        "title": "Spitalfields Life \u2014 In City Churchyards",
-        "url": "https://spitalfieldslife.com/wp-content/uploads/2026/08/CITY-TOUR-2.1-2-600x750.jpeg",
-        "imageUrl": "https://spitalfieldslife.com/wp-content/uploads/2026/08/CITY-TOUR-2.1-2-600x750.jpeg",
+        "id": "3fc6dd82",
+        "title": "Spitalfieldslife \u2014 In City Churchyards",
+        "url": "https://spitalfieldslife.com/2026/08/24/in-city-churchyards-iii/",
+        "imageUrl": "https://spitalfieldslife.com/wp-content/uploads/2026/08/CITY-TOUR-2.1-2.jpeg",
         "summary": "No description available."
       },
       {
-        "id": "8e7b9b88",
-        "title": "Rare Historical Photos \u2014 London\u2019s Wartime Nightlife During the Blackout: Rare Photos from 1944",
-        "url": "https://rarehistoricalphotos.com/wp-content/uploads/2026/07/london-wartime-nightlife-photos-384x253.jpg",
-        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/07/london-wartime-nightlife-photos-384x253.jpg",
+        "id": "58a27056",
+        "title": "Rarehistoricalphotos \u2014 London\u2019s Wartime Nightlife During the Blackout: Rare Photos from 1944",
+        "url": "https://rarehistoricalphotos.com/london-wartime-nightlife-photos/",
+        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/07/london-wartime-nightlife-photos.jpg",
         "summary": "By 1944, Londoners had lived under blackout conditions for nearly five years, and the routine of covering windows each night had become second nature. Every household and business had to cover its windows with thick black fabric or heavy wooden shutters, pr\u2026"
       },
       {
-        "id": "a8d0117f",
-        "title": "Misfits Architecture \u2014 AI Architecture + Infrastructure in China (1/2)",
-        "url": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/07/Screenshot-2026-07-19-at-08.30.33.png?fit=300%2C168&ssl=1",
-        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/07/Screenshot-2026-07-19-at-08.30.33.png?fit=300%2C168&ssl=1",
+        "id": "26a505b1",
+        "title": "Misfitsarchitecture \u2014 AI Architecture + Infrastructure in China (1/2)",
+        "url": "https://misfitsarchitecture.com/category/criticism/",
+        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/07/Screenshot-2026-07-19-at-08.30.33.png?resize=768%2C429&ssl=1",
         "summary": "Part 1: Architecture GrahamHello \u9a6c\u8fb0\u3002 It\u2019s me, Graham. I\u2019ve been thinking about how to best convey the essence of our conversations about Chinese language computing and the policy guidelines governing the siting of data centers in China. It\u2019d be great if we could work together in WordPress but WordPress has its own AI agents that [\u2026]"
+      },
+      {
+        "id": "f9a67831",
+        "title": "Vivianesassen \u2014 Update from https://www.vivianesassen.com/news",
+        "url": "https://www.vivianesassen.com/calendar/nl-imagined-group-exhibition/",
+        "imageUrl": "data:image/jpeg;base64,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DekNyUgMN7YHXXYO9ye1svJu8MsbBsRqby1w5Lpf6brsHfUbYftAvYeYuX53GqyvyrDWS+upHfWiZzl+IVYjotqW8WZVLhCVUsdDZ/P/APZVwDlY/wCoDYNu7cpmU8k1xJHU+r46/M78QN9l6V/obr6Kytm0ZAHcHYB5MDoEA9u+v3Cf/EMfzvL23UsqtrYZl+oD7jR/g/E5q8Sqt85VqvFtJHKoppjvsR9j1/jrKVWFk1GlDSWXGy7skEMP6gYWEKOvfdmuuu33kuKbAt75ODk1vfo2MGUn4AXgxOgPfp8+8C/iZNeZjJfUGCtvow0QQdEEfkSaUfCMe3FwRTaWIV28sO3IqnI8QT76GpegIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAkRxqDf55prNv+viOX8yWICIiAiIgIiICIiAiIgIiICRPjUWWrbZTW9i/S7KCR+DJYgJGaKmuW5qkNqgqrlRyAPsDJIgJxXVXSpWqtUUksQo0Nk7JncQEREBOXRbEZHUMrDRUjYInUQI6qaqE4U1pWvwigCSREBERAREQOVRUGkUKNk6A11M9IBGiNgz2IEVOPTjqVoprqB7hFC/7SWIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiIH//Z",
+        "summary": "NL Imagined | Group Exhibition, SHANGHAI CENTER OF PHOTOGRAPHY , Shanghai Center of Photography, Shanghai / Beijing, China, 16 DECEMBER 2022 - 9 APRIL 2023"
+      }
+    ]
+  },
+  {
+    "id": "2026-08-26",
+    "date": "26th of August",
+    "weekday": "Wednesday",
+    "description": "Updates from Vivianesassen.",
+    "entries": [
+      {
+        "id": "b5924095",
+        "title": "Vivianesassen \u2014 Stanze",
+        "url": "https://www.vivianesassen.com/installation-views/stanze/",
+        "imageUrl": "https://www.vivianesassen.com/site/assets/files/5097/vivianesassen_fotoforum_allestimento_1.jpg",
+        "summary": "Stanze, Foto Forum, Bolzano, Italy, 25 NOVEMBER 2022 - 3 DECEMBER 2022"
       }
     ]
   },
@@ -127,27 +141,27 @@
     "id": "2026-08-25",
     "date": "25th of August",
     "weekday": "Tuesday",
-    "description": "Updates from Spitalfields Life, Rare Historical Photos and Misfits Architecture.",
+    "description": "Updates from Spitalfieldslife, Rarehistoricalphotos and Misfitsarchitecture.",
     "entries": [
       {
-        "id": "5c83a158",
-        "title": "Spitalfields Life \u2014 On The Beat With PC Lew Tassell",
-        "url": "https://spitalfieldslife.com/wp-content/uploads/2026/08/DSC_8353.jpeg",
-        "imageUrl": "https://spitalfieldslife.com/wp-content/uploads/2026/08/DSC_8353.jpeg",
+        "id": "59dcadc0",
+        "title": "Spitalfieldslife \u2014 On The Beat With PC Lew Tassell",
+        "url": "https://spitalfieldslife.com/2026/08/25/on-the-beat-with-pc-lew-tassell-iiii/",
+        "imageUrl": "https://spitalfieldslife.com/wp-content/uploads/2026/08/DSC_8353-200x300.jpeg",
         "summary": "No description available."
       },
       {
-        "id": "b25d872f",
-        "title": "Rare Historical Photos \u2014 Vintage Beach Fashion of the 1930s: Glamorous Swimwear Photos From the Pre-Bikini Era",
-        "url": "https://rarehistoricalphotos.com/wp-content/uploads/2026/08/swimwear-fashion-1930s-384x253.jpg",
-        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/08/swimwear-fashion-1930s-384x253.jpg",
+        "id": "90cb47ad",
+        "title": "Rarehistoricalphotos \u2014 Vintage Beach Fashion of the 1930s: Glamorous Swimwear Photos From the Pre-Bikini Era",
+        "url": "https://rarehistoricalphotos.com/swimwear-fashion-1930s/",
+        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/08/swimwear-fashion-1930s.jpg",
         "summary": "Sun-drenched shores, tailored wool swimsuits, and a newfound sense of freedom all came together to define one of the most stylish decades in beach history. The 1930s transformed swimming from a rare luxury into a beloved national pastime, and with that shif\u2026"
       },
       {
-        "id": "629b6b09",
-        "title": "Misfits Architecture \u2014 AI Architecture + Infrastructure in China (2/2)",
-        "url": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/07/Ningxia-Zhongwei-Western-Cloud-Base.jpg?fit=300%2C169&ssl=1",
-        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/07/Ningxia-Zhongwei-Western-Cloud-Base.jpg?fit=300%2C169&ssl=1",
+        "id": "6a22f956",
+        "title": "Misfitsarchitecture \u2014 AI Architecture + Infrastructure in China (2/2)",
+        "url": "https://misfitsarchitecture.com/category/performance-history/",
+        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/07/Ningxia-Zhongwei-Western-Cloud-Base.jpg?resize=1536%2C865&ssl=1",
         "summary": "Part 2: Infrastructure Changes in the economics of various AI LLM are happening fast. July 17 saw the launch of the Chinese Moonshot as a free, open-source AI. The full version will be available July 27 \u2013 tomorrow, for open scrutiny its claims. Here\u2019s a link to some Australian hand-wringing, some New York Times commentary, [\u2026]"
       }
     ]
@@ -156,27 +170,27 @@
     "id": "2026-08-24",
     "date": "24th of August",
     "weekday": "Monday",
-    "description": "Updates from Spitalfields Life, Rare Historical Photos and Misfits Architecture.",
+    "description": "Updates from Spitalfieldslife, Rarehistoricalphotos and Misfitsarchitecture.",
     "entries": [
       {
-        "id": "c2f46c35",
-        "title": "Spitalfields Life \u2014 The Language Of Printers",
-        "url": "https://spitalfieldslife.com/wp-content/uploads/2026/08/NEW-REVIEW.1.jpeg",
-        "imageUrl": "https://spitalfieldslife.com/wp-content/uploads/2026/08/NEW-REVIEW.1.jpeg",
+        "id": "a6aa9f18",
+        "title": "Spitalfieldslife \u2014 The Language Of Printers",
+        "url": "https://spitalfieldslife.com/2026/08/26/the-language-of-printing-ii/",
+        "imageUrl": "https://spitalfieldslife.com/wp-content/uploads/2026/08/NEW-REVIEW.1-240x300.jpeg",
         "summary": "No description available."
       },
       {
-        "id": "4f55ae4c",
-        "title": "Rare Historical Photos \u2014 Before Modern Tourism: Kodachrome Photos Show Italy\u2019s Historic Architecture in the 1950s",
-        "url": "https://rarehistoricalphotos.com/wp-content/uploads/2026/08/italy-in-kodachrome-photos-1950s-384x253.jpg",
-        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/08/italy-in-kodachrome-photos-1950s-384x253.jpg",
+        "id": "8a10434a",
+        "title": "Rarehistoricalphotos \u2014 Before Modern Tourism: Kodachrome Photos Show Italy\u2019s Historic Architecture in the 1950s",
+        "url": "https://rarehistoricalphotos.com/italy-in-kodachrome-photos-1950s/",
+        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/08/italy-in-kodachrome-photos-1950s.jpg",
         "summary": "In the 1950s, Italy was a country where centuries of history blended naturally with everyday life. Ancient churches, medieval streets, Renaissance buildings, and traditional neighborhoods still stood largely untouched by the rapid changes that would come wi\u2026"
       },
       {
-        "id": "ac040a95",
-        "title": "Misfits Architecture \u2014 What\u2019s an architect to do?",
-        "url": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/08/main.jpg-scaled.jpeg?fit=300%2C172&ssl=1",
-        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/08/main.jpg-scaled.jpeg?fit=300%2C172&ssl=1",
+        "id": "d24894d0",
+        "title": "Misfitsarchitecture \u2014 What\u2019s an architect to do?",
+        "url": "https://misfitsarchitecture.com/category/career-case-studies/",
+        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/08/main.jpg-scaled.jpeg?resize=1536%2C881&ssl=1",
         "summary": "The suburb of Daglish in Perth, Western Australia has much green space in the form of roadside verges, parks, dog-friendly parks and playing fields. Many homes are large and relatively new and this relatively new double-story typology has an entrance, a double-car garage and possibly a master bedroom across the width of the block but, [\u2026]"
       }
     ]
@@ -185,27 +199,27 @@
     "id": "2026-08-23",
     "date": "23rd of August",
     "weekday": "Sunday",
-    "description": "Updates from Spitalfields Life, Rare Historical Photos and Misfits Architecture.",
+    "description": "Updates from Spitalfieldslife, Rarehistoricalphotos and Misfitsarchitecture.",
     "entries": [
       {
-        "id": "4e6d2de1",
-        "title": "Spitalfields Life \u2014 Relics At St Paul\u2019s From Before The Fire",
-        "url": "https://spitalfieldslife.com/wp-content/uploads/2026/08/CITY-TOUR-2.1-2-600x750.jpeg",
-        "imageUrl": "https://spitalfieldslife.com/wp-content/uploads/2026/08/CITY-TOUR-2.1-2-600x750.jpeg",
+        "id": "98d03844",
+        "title": "Spitalfieldslife \u2014 Relics At St Paul\u2019s From Before The Fire",
+        "url": "https://spitalfieldslife.com/2026/08/27/relics-at-st-pauls-from-before-the-fire/",
+        "imageUrl": "https://spitalfieldslife.com/wp-content/uploads/2026/08/CITY-TOUR-2.1-2.jpeg",
         "summary": "No description available."
       },
       {
-        "id": "f4ecd628",
-        "title": "Rare Historical Photos \u2014 Rare Color Photos Show the Elegance and Charm of 1950s Women\u2019s Swimwear",
-        "url": "https://rarehistoricalphotos.com/wp-content/uploads/2026/08/women-swimwear-fashion-1950s-384x253.jpg",
-        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/08/women-swimwear-fashion-1950s-384x253.jpg",
+        "id": "f22a9a50",
+        "title": "Rarehistoricalphotos \u2014 Rare Color Photos Show the Elegance and Charm of 1950s Women\u2019s Swimwear",
+        "url": "https://rarehistoricalphotos.com/women-swimwear-fashion-1950s/",
+        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/08/women-swimwear-fashion-1950s.jpg",
         "summary": "American swimwear manufacturers entered the 1950s with a design philosophy borrowed directly from the corset makers and eveningwear tailors of the previous decades. Rather than treating the swimsuit as simple beachwear, companies like Catalina, Cole of Cali\u2026"
       },
       {
-        "id": "5d073ae0",
-        "title": "Misfits Architecture \u2014 The Uses of Poetry",
-        "url": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/08/Chinese_School_-_Ancient_Chinese_Emperor_and_Empress_holding_court_before_courtiers_boating_in_an_-_MeisterDrucke-423521.jpeg?fit=285%2C300&ssl=1",
-        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/08/Chinese_School_-_Ancient_Chinese_Emperor_and_Empress_holding_court_before_courtiers_boating_in_an_-_MeisterDrucke-423521.jpeg?fit=285%2C300&ssl=1",
+        "id": "bc98957e",
+        "title": "Misfitsarchitecture \u2014 The Uses of Poetry",
+        "url": "https://misfitsarchitecture.com/category/criticism/",
+        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/08/Chinese_School_-_Ancient_Chinese_Emperor_and_Empress_holding_court_before_courtiers_boating_in_an_-_MeisterDrucke-423521.jpeg?resize=768%2C808&ssl=1",
         "summary": "Poetry isn\u2019t really part of our lives anymore, if ever it was. I recently read that most educated Chinese people can recite one or two poems about West Lake that I\u2019m currently trying to write something about. Hmm. I can remember the first few lines of John Keats\u2019 La Belle Dame sans Merci (\u201cO what [\u2026]"
       }
     ]
@@ -214,28 +228,35 @@
     "id": "2026-08-22",
     "date": "22nd of August",
     "weekday": "Saturday",
-    "description": "Updates from Spitalfields Life, Rare Historical Photos and Misfits Architecture.",
+    "description": "Updates from Spitalfieldslife, Rarehistoricalphotos, Misfitsarchitecture and Vivianesassen.",
     "entries": [
       {
-        "id": "162edee1",
-        "title": "Spitalfields Life \u2014 Seventeenth Annual Report",
-        "url": "https://spitalfieldslife.com/wp-content/uploads/2026/08/london.jpg",
-        "imageUrl": "https://spitalfieldslife.com/wp-content/uploads/2026/08/london.jpg",
+        "id": "36efc4bd",
+        "title": "Spitalfieldslife \u2014 Seventeenth Annual Report",
+        "url": "https://spitalfieldslife.com/2026/08/28/seventeenth-annual-report/",
+        "imageUrl": "https://spitalfieldslife.com/wp-content/uploads/2026/08/london-225x300.jpg",
         "summary": "No description available."
       },
       {
-        "id": "c0294783",
-        "title": "Rare Historical Photos \u2014 The Bizarre 1972 Rothschild Party: Rare Photos That Still Fuel Conspiracy Theories",
-        "url": "https://rarehistoricalphotos.com/wp-content/uploads/2026/08/rothschild-illuminati-party-photos-384x253.jpg",
-        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/08/rothschild-illuminati-party-photos-384x253.jpg",
+        "id": "81ef48f3",
+        "title": "Rarehistoricalphotos \u2014 The Bizarre 1972 Rothschild Party: Rare Photos That Still Fuel Conspiracy Theories",
+        "url": "https://rarehistoricalphotos.com/rothschild-illuminati-party-photos/",
+        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/08/rothschild-illuminati-party-photos.jpg",
         "summary": "On December 12, 1972, Ch\u00e2teau de Ferri\u00e8res, the grand 19th-century estate owned by the Rothschild family outside Paris, became the setting for one of the most unusual private gatherings of the era. Hosted by Marie-H\u00e9l\u00e8ne de Rothschild, the event was not a t\u2026"
       },
       {
-        "id": "b48779c0",
-        "title": "Misfits Architecture \u2014 Pilgrimage",
-        "url": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/08/IMG_3519-scaled.jpeg?fit=300%2C169&ssl=1",
-        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/08/IMG_3519-scaled.jpeg?fit=300%2C169&ssl=1",
+        "id": "5d18fe01",
+        "title": "Misfitsarchitecture \u2014 Pilgrimage",
+        "url": "https://misfitsarchitecture.com/category/education/",
+        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/08/IMG_3519-scaled.jpeg?resize=2048%2C1153&ssl=1",
         "summary": "Pasadena Heights is a 1974 project by Kiyonori Kikutake. It\u2019s near the Japanese city of Mishima which is twinned with Pasadena in California. You may have read about Pasadena Heights on this blog before because the first time I wrote about it was in 2015 but over the years there have been various mentions plus [\u2026]"
+      },
+      {
+        "id": "71174fe9",
+        "title": "Vivianesassen \u2014 Modern Alchemy | Book presentation",
+        "url": "https://www.vivianesassen.com/calendar/modern-alchemy/",
+        "imageUrl": "https://www.vivianesassen.com/site/assets/files/5091/modern-alchemy_sassen_01.jpg",
+        "summary": "Modern Alchemy | Book presentation, LES RENCONTRES D\u2019ARLES , Les Rencontres d\u2019Arles, Arles, France, 4 JULY 2022 - 25 SEPTEMBER 2022"
       }
     ]
   },
@@ -243,28 +264,35 @@
     "id": "2026-08-21",
     "date": "21st of August",
     "weekday": "Friday",
-    "description": "Updates from Spitalfields Life, Rare Historical Photos and Misfits Architecture.",
+    "description": "Updates from Spitalfieldslife, Rarehistoricalphotos, Misfitsarchitecture and Vivianesassen.",
     "entries": [
       {
-        "id": "b7c19d47",
-        "title": "Spitalfields Life \u2014 The Old City Of London",
-        "url": "https://spitalfieldslife.com/wp-content/uploads/2026/08/CITY-TOUR-2.1-2-600x750.jpeg",
-        "imageUrl": "https://spitalfieldslife.com/wp-content/uploads/2026/08/CITY-TOUR-2.1-2-600x750.jpeg",
+        "id": "e6a4e45a",
+        "title": "Spitalfieldslife \u2014 The Old City Of London",
+        "url": "https://spitalfieldslife.com/2026/08/29/the-old-city-of-london-iiii/",
+        "imageUrl": "https://spitalfieldslife.com/wp-content/uploads/2026/08/CITY-TOUR-2.1-2.jpeg",
         "summary": "No description available."
       },
       {
-        "id": "93fcaa44",
-        "title": "Rare Historical Photos \u2014 Inside the Strange and Stylish World of 1970s Men\u2019s Fashion Through Vintage Ads",
-        "url": "https://rarehistoricalphotos.com/wp-content/uploads/2026/08/strange-fashion-photos-1970s-384x253.jpg",
-        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/08/strange-fashion-photos-1970s-384x253.jpg",
+        "id": "411b49e0",
+        "title": "Rarehistoricalphotos \u2014 Inside the Strange and Stylish World of 1970s Men\u2019s Fashion Through Vintage Ads",
+        "url": "https://rarehistoricalphotos.com/strange-fashion-photos-1970s/",
+        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/08/strange-fashion-photos-1970s.jpg",
         "summary": "Open any box of decades-old family photographs and there is a good chance one image will stop the scroll: a man in a belted sweater, knee-high boots, and a print bold enough to make modern eyes squint. Vintage menswear advertisements from the 1970s are full\u2026"
       },
       {
-        "id": "712994d2",
-        "title": "Misfits Architecture \u2014 The Interchange",
-        "url": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/08/Desheng-Expressway-and-Qiushi-Expressway-in-Hangzhou-to-Undergo-Lighting-Upgrades.jpeg?fit=300%2C200&ssl=1",
-        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/08/Desheng-Expressway-and-Qiushi-Expressway-in-Hangzhou-to-Undergo-Lighting-Upgrades.jpeg?fit=300%2C200&ssl=1",
+        "id": "670322c2",
+        "title": "Misfitsarchitecture \u2014 The Interchange",
+        "url": "https://misfitsarchitecture.com/category/performance-history/",
+        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/08/Desheng-Expressway-and-Qiushi-Expressway-in-Hangzhou-to-Undergo-Lighting-Upgrades.jpeg?resize=300%2C200&ssl=1",
         "summary": "High-speed road interchanges have been around for the best part of a century now even though viaducts that allow roads to cross without intersecting have a much longer history. Intersections have been around for as long as there have been roads but the problem with intersections is that give way rules such as \u201cGive way [\u2026]"
+      },
+      {
+        "id": "b83942c7",
+        "title": "Vivianesassen \u2014 Venus & Mercury \u2013 untold stories of French Versailles",
+        "url": "https://www.vivianesassen.com/installation-views/venus-mercury-untold-stories-of-french-versailles/",
+        "imageUrl": "https://www.vivianesassen.com/site/assets/files/5098/925_ov_vs-21s.jpg",
+        "summary": "Venus & Mercury \u2013 untold stories of French Versailles, Museum of Contemporary Art, Zagreb, Croatia, 29 JUNE 2022 - 28 OCTOBER 2022"
       }
     ]
   },
@@ -272,20 +300,20 @@
     "id": "2026-08-20",
     "date": "20th of August",
     "weekday": "Thursday",
-    "description": "Updates from Rare Historical Photos and Misfits Architecture.",
+    "description": "Updates from Rarehistoricalphotos and Misfitsarchitecture.",
     "entries": [
       {
-        "id": "13b192b7",
-        "title": "Rare Historical Photos \u2014 Weird and Surreal Vintage Album Covers from the 1970s to the 1990s",
-        "url": "https://rarehistoricalphotos.com/wp-content/uploads/2026/08/weird-album-covers-photos-384x253.jpg",
-        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/08/weird-album-covers-photos-384x253.jpg",
+        "id": "a8ed96c5",
+        "title": "Rarehistoricalphotos \u2014 Weird and Surreal Vintage Album Covers from the 1970s to the 1990s",
+        "url": "https://rarehistoricalphotos.com/weird-album-covers-photos/",
+        "imageUrl": "https://rarehistoricalphotos.com/wp-content/uploads/2026/08/weird-album-covers-photos.jpg",
         "summary": "Record store shelves once told stories long before anyone dropped a needle on vinyl. A cover was an artist's first impression, a single image meant to stop browsers mid-flip and pull them toward the turntable. Between the 1970s and the 1990s, that impulse p\u2026"
       },
       {
-        "id": "c623e792",
-        "title": "Misfits Architecture \u2014 Behind The Scenes",
-        "url": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/08/1mi0p12000soyn96dEE8F.jpg.webp?fit=242%2C300&ssl=1",
-        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/08/1mi0p12000soyn96dEE8F.jpg.webp?fit=242%2C300&ssl=1",
+        "id": "c2abee64",
+        "title": "Misfitsarchitecture \u2014 Behind The Scenes",
+        "url": "https://misfitsarchitecture.com/category/history/",
+        "imageUrl": "https://i0.wp.com/misfitsarchitecture.com/wp-content/uploads/2026/08/1mi0p12000soyn96dEE8F.jpg.webp?resize=242%2C300&ssl=1",
         "summary": "The Chinese city of Hangzhou is on the Qiantang River that empties into Hangzhou Bay which is a large, funnel-shaped indentation on mainland China\u2019s east coast. Pacific Ocean tides are funneled by the bay to create a tidal wave (a.k.a. tidal bore) that can be as high as nine meters and travel up to 40km/hour [\u2026]"
       }
     ]
