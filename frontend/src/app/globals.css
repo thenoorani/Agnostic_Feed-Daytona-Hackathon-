@@ -1,0 +1,540 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* --- Layout grid ---------------------------------------------------
+     Single source of truth. Change these and every container, the
+     overlay, and any span utility follow.
+
+     Margins: the sides are a fixed 100px. The top is the same 100px at
+     the reference width, then scales with the window:
+       1728px wide -> 100px      1280px wide -> 74px
+
+     Gutters: 12px between columns (vertical), 24px between rows
+     (horizontal) — which is the gap you see between blocks, since a
+     block spans three rows and swallows its own internal gutters.
+
+     Row height is derived, not chosen: it is whatever makes a block of
+     --block-columns x --block-rows come out at screen proportions
+     (16:9), since the blocks stand in for website screenshots. */
+  --margin-unit: 100;
+  --reference-width: 1728;
+
+  --page-margin: calc(var(--margin-unit) * 1px);
+  --page-margin-top: calc(100vw / var(--reference-width) * var(--margin-unit));
+
+  --grid-columns: 12;
+  --gutter-column: 12px;
+  --gutter-row: 24px;
+
+  --content-width: calc(100vw - 2 * var(--page-margin));
+  --column-width: calc(
+    (var(--content-width) - (var(--grid-columns) - 1) * var(--gutter-column)) /
+      var(--grid-columns)
+  );
+
+  /* A block is 4 columns wide and 3 rows tall, and must be 16:9. Solve
+     backwards from that for the height of a single row. */
+  --screen-ratio: calc(9 / 16);
+  --block-columns: 4;
+  --block-rows: 3;
+  --block-width: calc(
+    var(--block-columns) * var(--column-width) +
+      (var(--block-columns) - 1) * var(--gutter-column)
+  );
+  --block-height: calc(var(--block-width) * var(--screen-ratio));
+  --row-height: calc(
+    (var(--block-height) - (var(--block-rows) - 1) * var(--gutter-row)) /
+      var(--block-rows)
+  );
+
+  /* How far the logo drops from the centre of the margin band. */
+  --mark-drop: 3px;
+  --mark-height: 38.7px;
+  /* One viewBox user unit, in px. The viewBox is 81 x 62.5. */
+  --mark-unit: calc(var(--mark-height) / 62.5);
+
+
+  /* Room below each block for the hover dropdown. */
+  --summary-drop: 52px;
+
+  /* Two columns and the gutter between them. */
+  --description-width: calc(
+    2 * var(--column-width) + 1 * var(--gutter-column)
+  );
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  position: relative;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Helvetica, Arial, sans-serif;
+}
+
+/* --- The grid ------------------------------------------------------- */
+
+/* Full-bleed wrapper holding the page margins: fixed on the sides,
+   proportional on top. */
+.page {
+  position: relative;
+  width: 100%;
+  padding-inline: var(--page-margin);
+  padding-top: var(--page-margin-top);
+  padding-bottom: var(--page-margin);
+}
+
+/* Sits in the top margin at column 1, opposite the wordmark. Hovering
+   or focusing it opens into a URL field: the tail travels right, the
+   period stretches into a bar, and the bar then thins into the rule the
+   field sits on. */
+.mark-form {
+  /* Everything about the opened panel derives from --mark-extra, which
+     the component raises to fit a long URL. Declared here rather than on
+     :root so that JS setting it on this element re-resolves the lot. */
+  --mark-extra: 0;
+  --mark-travel: calc(500 + var(--mark-extra));
+  --mark-stretch: calc((510 + var(--mark-extra)) / 10);
+  --mark-field: calc(510 + var(--mark-extra));
+  --mark-total: calc(576 + var(--mark-extra));
+
+  position: absolute;
+  left: var(--page-margin);
+  top: calc(var(--page-margin-top) / 2);
+  transform: translateY(calc(-50% + var(--mark-drop)));
+  height: var(--mark-height);
+  /* Collapsed, the box is just the mark. It widens the instant you hover
+     so the pointer stays inside it on the way to the field — without
+     this the box would end at the mark and the panel would shut. */
+  width: calc(81 * var(--mark-unit));
+  z-index: 3;
+}
+
+.mark-form:hover,
+.mark-form:focus-within {
+  width: calc(var(--mark-total) * var(--mark-unit));
+}
+
+.mark {
+  display: block;
+  height: 100%;
+  width: auto;
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.mark path {
+  fill: currentColor;
+}
+
+.mark__tail,
+.mark__rule-x {
+  transition: transform 520ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* fill-box so the origin is the period's own left edge and baseline. */
+.mark__rule-x,
+.mark__rule-y {
+  transform-box: fill-box;
+  transform-origin: left bottom;
+}
+
+.mark__rule-y {
+  transition: transform 260ms ease 0ms;
+}
+
+.mark-form:hover .mark__tail,
+.mark-form:focus-within .mark__tail {
+  transform: translateX(calc(var(--mark-travel) * 1px));
+}
+
+.mark-form:hover .mark__rule-x,
+.mark-form:focus-within .mark__rule-x {
+  transform: scaleX(var(--mark-stretch));
+}
+
+/* Thins only once the bar has finished stretching. */
+.mark-form:hover .mark__rule-y,
+.mark-form:focus-within .mark__rule-y {
+  transform: scaleY(0.3);
+  transition-delay: 520ms;
+}
+
+/* Sits on the rule, spanning the same run as the bar. Kept focusable
+   while hidden so it can be reached by keyboard, which opens the panel
+   through :focus-within. */
+.mark-form__input {
+  position: absolute;
+  left: calc(28 * var(--mark-unit));
+  width: calc(var(--mark-field) * var(--mark-unit));
+  bottom: calc(var(--mark-height) - 47 * var(--mark-unit) + 4px);
+  height: 18px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--foreground);
+  font-family: var(--font-computer-modern), "CMU Serif", Georgia, serif;
+  font-size: 13px;
+  line-height: 18px;
+  opacity: 0;
+  transition:
+    opacity 180ms ease 0ms,
+    width 520ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Zero-height probe whose width is column 5's right edge, read back by
+   the component as the cap on how far the panel may grow. */
+.mark-form__limit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  visibility: hidden;
+  pointer-events: none;
+  width: calc(5 * var(--column-width) + 4 * var(--gutter-column));
+}
+
+.mark-form__input::placeholder {
+  color: color-mix(in srgb, var(--foreground) 45%, transparent);
+}
+
+.mark-form__input:focus {
+  outline: none;
+}
+
+.mark-form:hover .mark-form__input,
+.mark-form:focus-within .mark-form__input {
+  opacity: 1;
+  transition-delay: 640ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mark__tail,
+  .mark__rule-x,
+  .mark__rule-y,
+  .mark-form__input {
+    transition-duration: 1ms;
+    transition-delay: 0ms;
+  }
+}
+
+/* The wordmark sits in the top margin, not in the grid: absolutely
+   positioned over the margin band so it consumes no row and the first
+   block still starts on row 1. Sized from the margin it lives in. */
+.wordmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--page-margin-top);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-family: var(--font-computer-modern), "CMU Serif", Georgia, serif;
+  font-size: 32px;
+  line-height: 1;
+}
+
+/* Vertical grid: 12 equal columns. Children can use Tailwind's
+   col-span-* / col-start-* utilities. */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--gutter-column);
+  row-gap: var(--gutter-row);
+}
+
+/* Horizontal grid: square rows tiling down the page for as long as the
+   content runs. Children can use row-span-* / row-start-*. */
+.grid-rows {
+  display: grid;
+  grid-auto-rows: var(--row-height);
+  row-gap: var(--gutter-row);
+}
+
+/* --- Feed ----------------------------------------------------------- */
+
+/* The track spans columns 5-12, which is exactly two block widths plus a
+   gutter: open, it shows the pinned day block and one entry, and scrolls
+   for the rest. */
+.feed-track {
+  display: flex;
+  gap: var(--gutter-column);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  /* Bleed through the right margin to the viewport edge, so scrolled
+     entries run past it rather than stopping at column 12. The matching
+     end padding gives the row that extra 100px of travel, so scrolling
+     finishes with the last entry on the grid's right margin instead of
+     against the page edge. */
+  margin-right: calc(var(--page-margin) * -1);
+  padding-right: var(--page-margin);
+  /* A horizontal scroller cannot have visible vertical overflow, so the
+     hover dropdown has to sit inside this box. content-box sizing keeps
+     the children exactly one block tall while the padding gives the
+     dropdown somewhere to go. The row area is a fixed size, so the extra
+     height overflows visually without moving anything. */
+  box-sizing: content-box;
+  align-self: start;
+  height: var(--block-height);
+  padding-bottom: var(--summary-drop);
+}
+
+/* Lift a hovered row above its neighbours so its dropdown is not painted
+   over by the next day's block. */
+.feed-track:hover {
+  z-index: 2;
+}
+
+.feed-track::-webkit-scrollbar {
+  display: none;
+}
+
+.feed-track[data-open="true"] {
+  overflow-x: auto;
+}
+
+/* Scrolls with the rest of the row. Still stacked above the entries so
+   they slide out from behind it when the row opens — but it is not
+   pinned: the date label lives outside the track and stays put on its
+   own. */
+.feed-day {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 var(--block-width);
+  height: 100%;
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: #d4d4d4;
+  cursor: pointer;
+  transition: background 200ms ease;
+}
+
+.feed-day:hover,
+.feed-day[aria-expanded="true"] {
+  background: #a3a3a3;
+}
+
+/* Columns 1-4, right-aligned so it meets the right edge of column 4 —
+   the gutter before the day block. Outside the scroll track, so it does
+   not move when the entries scroll. */
+.feed-label {
+  align-self: start;
+  margin: 0;
+  /* Lifted clear of the block so it sits in the row gutter above it
+     rather than inside the block's own band. Transform, so it keeps its
+     grid cell and shifts nothing else. */
+  transform: translateY(-100%);
+  text-align: right;
+  font-family: var(--font-computer-modern), "CMU Serif", Georgia, serif;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+/* Exactly columns 1-2. The trailing margin covers columns 3 and 4 with
+   their gutters, so the day block after it still lands on column 5.
+   Scrolls with the row; the date label above it is lifted into the
+   gutter, so the two never collide. */
+.feed-description {
+  flex: 0 0 var(--description-width);
+  align-self: start;
+  /* Shorthand, not a separate margin-right: a later `margin: 0` would
+     silently reset it. */
+  margin: 0 calc(2 * var(--column-width) + 2 * var(--gutter-column)) 0 0;
+  font-family: var(--font-computer-modern), "CMU Serif", Georgia, serif;
+  font-size: 14px;
+  line-height: 1.45;
+  text-wrap: pretty;
+  color: color-mix(in srgb, var(--foreground) 70%, transparent);
+}
+
+.feed-label__date {
+  color: color-mix(in srgb, var(--foreground) 50%, transparent);
+}
+
+
+.feed-day:focus-visible,
+.feed-entry:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: -2px;
+}
+
+/* Parked exactly one block behind the day block, so opening slides the
+   entries out from under it. */
+.feed-entries {
+  display: flex;
+  gap: var(--gutter-column);
+  height: 100%;
+  transform: translateX(calc((var(--block-width) + var(--gutter-column)) * -1));
+  opacity: 0;
+  transition:
+    transform 420ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    opacity 240ms ease;
+}
+
+.feed-track[data-open="true"] .feed-entries {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Same size as the day block. */
+.feed-entry {
+  position: relative;
+  flex: 0 0 var(--block-width);
+  height: 100%;
+  background: #d4d4d4;
+  transition: background 160ms ease;
+}
+
+.feed-entry:hover {
+  background: #a3a3a3;
+}
+
+/* Parked behind the card and slid down on hover, so it appears to drop
+   out from underneath it. */
+.feed-entry__summary {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  padding-top: 8px;
+  font-family: var(--font-computer-modern), "CMU Serif", Georgia, serif;
+  font-size: 12px;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--foreground) 70%, transparent);
+  text-wrap: pretty;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition:
+    transform 260ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    opacity 180ms ease;
+}
+
+.feed-entry:hover .feed-entry__summary,
+.feed-entry:focus-visible .feed-entry__summary {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feed-entries,
+  .feed-entry__summary {
+    transition-duration: 1ms;
+  }
+}
+
+/* --- Dev-only grid overlay ------------------------------------------ */
+
+/* Absolute, not fixed, so the guides scroll with the page and extend
+   the full document height. */
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* visibility rather than display, so the guides can still be measured
+   for the readout while hidden. */
+.grid-overlay[data-visible="false"] {
+  visibility: hidden;
+}
+
+.grid-overlay__margin {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: rgba(0, 128, 255, 0.05);
+}
+
+.grid-overlay__margin--top {
+  top: 0;
+  height: var(--page-margin-top);
+  border-bottom: 1px dashed rgba(0, 128, 255, 0.3);
+}
+
+.grid-overlay__margin--bottom {
+  bottom: 0;
+  height: var(--page-margin);
+  border-top: 1px dashed rgba(0, 128, 255, 0.3);
+}
+
+.grid-overlay__field {
+  position: absolute;
+  top: var(--page-margin-top);
+  left: var(--page-margin);
+  right: var(--page-margin);
+  bottom: var(--page-margin);
+}
+
+.grid-overlay__cols {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  column-gap: var(--gutter-column);
+}
+
+.grid-overlay__col {
+  height: 100%;
+  background: rgba(255, 0, 128, 0.09);
+  outline: 1px solid rgba(255, 0, 128, 0.16);
+  outline-offset: -1px;
+}
+
+/* Rows are painted as a repeating gradient so they tile down the page
+   however long it gets, without rendering an element per row. */
+.grid-overlay__rows {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 128, 255, 0.07) 0,
+    rgba(0, 128, 255, 0.07) var(--row-height),
+    transparent var(--row-height),
+    transparent calc(var(--row-height) + var(--gutter-row))
+  );
+}
+
+.grid-overlay__toggle {
+  position: fixed;
+  right: 12px;
+  top: 12px;
+  z-index: 9999;
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: 1px solid color-mix(in srgb, var(--foreground) 20%, transparent);
+  background: color-mix(in srgb, var(--background) 82%, transparent);
+  color: var(--foreground);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+
+.grid-overlay__toggle:hover {
+  border-color: color-mix(in srgb, var(--foreground) 40%, transparent);
+}
