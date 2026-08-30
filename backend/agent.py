@@ -66,7 +66,7 @@ async def process_url(url: str) -> list:
         # 2. Execute the script in Daytona Sandbox via Python SDK
         script_code_b64 = base64.b64encode(script_code.encode()).decode()
         
-        from daytona import DaytonaConfig
+        from daytona import DaytonaConfig, CreateSandboxFromImageParams
         config = DaytonaConfig(
             api_key=os.getenv("DAYTONA_API_KEY"),
             api_url=os.getenv("DAYTONA_SERVER_URL") or os.getenv("DAYTONA_API_URL")
@@ -74,11 +74,12 @@ async def process_url(url: str) -> list:
         
         async with AsyncDaytona(config=config) as daytona:
             print(f"Spinning up Daytona sandbox for {url}...")
-            sandbox = await daytona.create()
+            # Use pre-baked Playwright Python image to instantly skip the 45-second chromium download!
+            sandbox = await daytona.create(CreateSandboxFromImageParams(image="mcr.microsoft.com/playwright/python:v1.49.0-noble"))
             
             try:
-                print(f"Installing playwright in sandbox for {url}...")
-                await sandbox.process.exec("pip install playwright && python -m playwright install chromium --with-deps")
+                print(f"Installing playwright python package in sandbox for {url}...")
+                await sandbox.process.exec("pip install playwright")
                 
                 print(f"Injecting LLM-generated code for {url}...")
                 await sandbox.process.exec(f"echo {script_code_b64} | base64 -d > scrape.py")
