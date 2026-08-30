@@ -125,7 +125,10 @@ export function PunctuationMark() {
 
     setSwallowing(true);
     if (swallowTimer.current !== null) window.clearTimeout(swallowTimer.current);
-    swallowTimer.current = window.setTimeout(() => setSwallowing(false), 1150);
+    swallowTimer.current = window.setTimeout(() => {
+      setSwallowing(false);
+      import("@/lib/feed").then((m) => m.feedStore.triggerUpdate());
+    }, 1150);
   };
 
   return (

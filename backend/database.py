@@ -11,6 +11,7 @@ class FeedItem(BaseModel):
     article_description: Optional[str] = None
     main_photo_url: Optional[str] = None
     screenshot_base64: Optional[str] = None
+    article_url: Optional[str] = None
 
 def init_db():
     conn = sqlite3.connect(DB_FILE)
@@ -24,6 +25,7 @@ def init_db():
             article_description TEXT,
             main_photo_url TEXT,
             screenshot_base64 TEXT,
+            article_url TEXT,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     ''')
@@ -34,9 +36,9 @@ def insert_feed_item(item: FeedItem):
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
     cursor.execute('''
-        INSERT INTO feed_items (site, date, article_name, article_description, main_photo_url, screenshot_base64)
-        VALUES (?, ?, ?, ?, ?, ?)
-    ''', (item.site, item.date, item.article_name, item.article_description, item.main_photo_url, item.screenshot_base64))
+        INSERT INTO feed_items (site, date, article_name, article_description, main_photo_url, screenshot_base64, article_url)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    ''', (item.site, item.date, item.article_name, item.article_description, item.main_photo_url, item.screenshot_base64, item.article_url))
     conn.commit()
     conn.close()
 

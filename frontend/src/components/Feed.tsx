@@ -1,7 +1,7 @@
 "use client";
 
 import { Fragment, useCallback, useEffect, useRef, useState } from "react";
-import { feedDays } from "@/lib/feed";
+import { feedStore } from "@/lib/feed";
 
 const TRACK_COLUMN_START = 1; // the row scrolls as one, description included
 const TRACK_COLUMN_SPAN = 12
@@ -19,14 +19,7 @@ function splitLead(description: string): [string, string] {
 }
 
 function renderDescription(description: string) {
-  const [lead, rest] = splitLead(description);
-  if (!lead) return description;
-  return (
-    <>
-      <strong className="feed-description__lead">{lead}</strong>
-      {rest}
-    </>
-  );
+  return description;
 }
 
 /**
@@ -37,8 +30,15 @@ function renderDescription(description: string) {
  * the grid's right margin.
  */
 export function Feed() {
+  const [days, setDays] = useState(() => feedStore.getDays());
   const [openDayId, setOpenDayId] = useState<string | null>(null);
   const tracks = useRef(new Map<string, HTMLDivElement | null>());
+
+  useEffect(() => {
+    return feedStore.subscribe(() => {
+      setDays(feedStore.getDays());
+    });
+  }, []);
 
   const toggle = useCallback((dayId: string) => {
     setOpenDayId((current) => {
@@ -83,7 +83,7 @@ export function Feed() {
 
   return (
     <>
-      {feedDays.map((day, index) => {
+      {days.map((day, index) => {
         const isOpen = day.id === openDayId;
         const isEmpty = day.entries.length === 0;
         const row = `${index * ROW_SPAN + 1} / span ${ROW_SPAN}`;
@@ -127,7 +127,7 @@ export function Feed() {
                   onClick={() => toggle(day.id)}
                 >
                   {day.entries.map((entry) => (
-                    <span key={entry.id} className="feed-day__bar" />
+                    <span key={entry.id} className="feed-day__bar" style={entry.imageUrl ? { backgroundImage: `url(${entry.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}} />
                   ))}
                 </button>
               )}

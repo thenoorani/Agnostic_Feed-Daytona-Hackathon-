@@ -2,7 +2,7 @@ import json
 import uuid
 from datetime import datetime
 
-with open('rest_state.json') as f:
+with open('update_state.json') as f:
     data = json.load(f)
 
 grouped = {}
@@ -57,5 +57,5 @@ for date_str in sorted_dates:
         "entries": entries
     })
 
-with open('frontend/src/lib/data.json', 'w') as f:
+with open('frontend/src/lib/update_data.json', 'w') as f:
     json.dump(feed_days, f, indent=2)
